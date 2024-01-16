@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FarCal: Farming Calendar Assistant </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: url('https://media.istockphoto.com/id/97157183/photo/olive-grove-landscape-in-alentejo.jpg?s=612x612&w=0&k=20&c=QcRG-MIeVE7oNdMcjd82VrwhYQ57FmV0XtuBDBGFKrU=') center/cover fixed;
+            overflow: hidden;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(37, 80, 25, 0.393);
+            backdrop-filter: blur(5px);
+            z-index: -1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .rounded-container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 0 auto;
+            width: 60%;
+        }
+    </style>
+</head>
+<body class="d-flex align-items-center justify-content-center vh-100">
+
+    <div class="overlay"></div>
+
+    <div class="content container rounded-container">
+        <h1 class="text-center mb-4">مساعد الأنشطة الفلاحية</h1>
+        <form class="text-center">
+            <div class="mb-3 mx-auto" style="width: 35%;"> <!-- Adjust the width as needed -->
+                <label for="plants" class="form-label">:الرجاء اختيار النشاط الفلاحي</label>
+                <select class="form-select w-100" name="plants" id="plants">
+                    <option value="olive">أشجار الزيتون</option>
+                    <option value="tomatoes">الطماطم</option>
+                    <option value="potatoes">البطاطا</option>
+                    <option value="peppers">الفلفل</option>
+                </select>
+            </div>
+
+            <div class="mb-3 mx-auto" style="width: 35%;"> <!-- Adjust the width as needed -->
+                <label for="datepicker" class="form-label">:الرجاء تحديد التاريخ</label>
+                <input type="date" class="form-control w-100" id="datepicker" name="datepicker" value="<?php echo date('Y-m-d'); ?>" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">اقتراح النشاط الفلاحي</button>
+        </form>
+    </div>
+
+    <script src="" async defer></script>
+</body>
+</html>
