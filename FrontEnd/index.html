@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>FarCal: Farming Calendar Assistant </title>
+    <title>FarCal: Farming Calendar Assistant</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
@@ -36,8 +37,27 @@
             margin: 0 auto;
             width: 60%;
         }
+
+        .card-visible {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
+        }
+
+        .card-visible p {
+            font-size: 18px;
+            color: #495057;
+        }
     </style>
 </head>
+
 <body class="d-flex align-items-center justify-content-center vh-100">
 
     <div class="overlay"></div>
@@ -45,7 +65,7 @@
     <div class="content container rounded-container">
         <h1 class="text-center mb-4">مساعد الأنشطة الفلاحية</h1>
         <form class="text-center">
-            <div class="mb-3 mx-auto" style="width: 35%;"> <!-- Adjust the width as needed -->
+            <div class="mb-3 mx-auto" style="width: 35%;">
                 <label for="plants" class="form-label">:الرجاء اختيار النشاط الفلاحي</label>
                 <select class="form-select w-100" name="plants" id="plants">
                     <option value="olive">أشجار الزيتون</option>
@@ -55,15 +75,21 @@
                 </select>
             </div>
 
-            <div class="mb-3 mx-auto" style="width: 35%;"> <!-- Adjust the width as needed -->
+            <div class="mb-3 mx-auto" style="width: 35%;">
                 <label for="datepicker" class="form-label">:الرجاء تحديد التاريخ</label>
                 <input type="date" class="form-control w-100" id="datepicker" name="datepicker" value="<?php echo date('Y-m-d'); ?>" required>
             </div>
 
-            <button type="submit" class="btn btn-primary">اقتراح النشاط الفلاحي</button>
+            <button type="submit" class="btn btn-primary" id="button">اقتراح النشاط الفلاحي</button>
         </form>
+
+        <!-- Suggestion Card -->
+        <div class="card card-visible d-none">
+            
+        </div>
     </div>
 
-    <script src="" async defer></script>
+    <script src="index.js"></script>
 </body>
+
 </html>
