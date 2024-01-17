@@ -49,8 +49,7 @@ async def get_user_endpoint(user_id: int):
 
 @app.get("/get_weather/{city}")
 async def get_weather(city: str):
-    # Ensure you have an OpenWeatherMap API key
-    api_key = "your_openweathermap_api_key"
+    api_key = "openweathermap_api_key"
     weather_data = await get_weather_data(api_key, city)
     return weather_data
 
@@ -60,6 +59,4 @@ async def generate_crop_recommendations(user_id: int, city: str):
 
 @app.post("/send_notification")
 async def send_notification(user_id: int, message: str):
-    p
-
-# ... (other routes and logic)
+    pass
