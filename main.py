@@ -116,11 +116,11 @@ async def read_agricultural_periods(skip: int = 0, limit: int = 10, db: Session 
 def get_available_suggestions(crop_name: str, date: str, db: Session):
     crop = db.query(Crop).filter(func.lower(Crop.cropname) == func.lower(crop_name)).first()
     if not crop:
-        raise HTTPException(status_code=404, detail="Crop not found")
+        raise HTTPException(status_code=404, detail="لا وجود للمحصول في قاعدة البيانات")
 
     period = db.query(AgriculturalPeriod).filter(AgriculturalPeriod.startdate <= date, AgriculturalPeriod.enddate >= date).first()
     if not period:
-        raise HTTPException(status_code=404, detail="Agricultural period not found for the given date")
+        raise HTTPException(status_code=404, detail="لا توجد اقتراحات لمحصولكم في تلك الفترة")
 
     suggestions = (
         db.query(Suggestion)
