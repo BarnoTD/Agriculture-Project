@@ -21,13 +21,15 @@
             width: 100%;
             height: 100%;
             background: rgba(37, 80, 25, 0.393);
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(9px);
             z-index: -1;
         }
+
 
         .content {
             position: relative;
             z-index: 1;
+            animation: fadeIn 1s ease-in-out;
         }
 
         .rounded-container {
@@ -36,6 +38,21 @@
             padding: 20px;
             margin: 0 auto;
             width: 60%;
+        }
+
+        .card-visible p {
+            font-size: 18px;
+            color: #495057;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         .card-visible {
@@ -49,11 +66,9 @@
             border-radius: .25rem;
             background-color: #fff;
             box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
-        }
-
-        .card-visible p {
-            font-size: 18px;
-            color: #495057;
+            animation: fadeIn 1s ease-in-out;
+            opacity: 1;
+            /* Add this line */
         }
     </style>
 </head>
@@ -66,18 +81,19 @@
         <h1 class="text-center mb-4">مساعد الأنشطة الفلاحية</h1>
         <form class="text-center">
             <div class="mb-3 mx-auto" style="width: 35%;">
-                <label for="plants" class="form-label">:الرجاء اختيار النشاط الفلاحي</label>
+                <label for="plants" class="form-label">:الرجاء اختيار المحصول</label>
                 <select class="form-select w-100" name="plants" id="plants">
-                    <option value="olive">أشجار الزيتون</option>
-                    <option value="tomatoes">الطماطم</option>
-                    <option value="potatoes">البطاطا</option>
-                    <option value="peppers">الفلفل</option>
+                    <option value="الزيتون">الزيتون</option>
+                    <option value="الطماطم">الطماطم</option>
+                    <option value="البطاطا">البطاطا</option>
+                    <option value="الفلفل">الفلفل</option>
                 </select>
             </div>
 
             <div class="mb-3 mx-auto" style="width: 35%;">
                 <label for="datepicker" class="form-label">:الرجاء تحديد التاريخ</label>
-                <input type="date" class="form-control w-100" id="datepicker" name="datepicker" value="<?php echo date('Y-m-d'); ?>" required>
+                <input type="date" class="form-control w-100" id="datepicker" name="datepicker"
+                    value="<?php echo date('Y-m-d'); ?>" required>
             </div>
 
             <button type="submit" class="btn btn-primary" id="button">اقتراح النشاط الفلاحي</button>
@@ -85,7 +101,7 @@
 
         <!-- Suggestion Card -->
         <div class="card card-visible d-none">
-            
+
         </div>
     </div>
 
